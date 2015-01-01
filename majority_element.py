@@ -5,6 +5,7 @@ class Solution:
         length = len(num)
         i = 0
         found = False
+        
         while found == False:
             target_num = num[i]
             count = 0
