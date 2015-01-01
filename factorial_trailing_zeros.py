@@ -7,3 +7,4 @@ class Solution:
             div = div // 5
             sum = sum + div
         return sum
+
