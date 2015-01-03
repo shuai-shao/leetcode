@@ -7,4 +7,4 @@ class Solution:
         else:
             S.sort()
             pre_subsets = self.subsets(S[1:])
-            return pre_subsets + [[S[0]]+elem for elem in pre_subsets]
+            return pre_subsets + [[S[0]]+elem for elem in pre_subsets]  # extend, insert here will cause error because of []
