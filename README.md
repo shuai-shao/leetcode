@@ -1,4 +1,4 @@
 leetcode
 ========
 
-My codes for leetcode
+Shuai's Python codes for leetcode OJ
