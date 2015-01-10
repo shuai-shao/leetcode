@@ -44,3 +44,32 @@ class Solution:
                 return True, [[root.val] + x for x in list_right]
             else:
                 return False, []
+#########################################################################################################
+# A neater solution 
+# Definition for a binary tree node
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    # @param root, a tree node
+    # @param sum, an integer
+    # @return a list of lists of integers
+    def pathSum(self, root, sum):
+        bool_total, result = self._pathsum(root, sum)
+        return result
+        
+
+        
+    def _pathsum(self, root, sum):   # helper function that returns whether path exists and a list
+        if not root:
+            return False, []
+        if not root.left and not root.right and root.val == sum:
+            return True, [[root.val]]
+        bool_left, result_left = self._pathsum(root.left, sum - root.val)
+        bool_right, result_right = self._pathsum(root.right, sum - root.val)
+        bool_total = bool_left or bool_right
+        result = [[root.val] + x for x in result_left if bool_left] + [[root.val] + x for x in result_right if bool_right]
+        return bool_total, result
